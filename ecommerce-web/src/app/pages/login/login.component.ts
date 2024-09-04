@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/services';
-import { AuthenticationRequest } from '../../services/models/authentication-request';
 import { TokenService } from '../../services/token/token.service';
+import { AuthenticationRequest } from '../../services/models';
 
 
 @Component({
@@ -40,6 +40,34 @@ export class LoginComponent {
       }
     });
   }
+
+  // login() {
+  //   this.errorMsg = [];
+  //   this.authService.authenticate({ body: this.authRequest }).pipe(
+  //     tap((res) => {
+  //       // Handle successful authentication
+  //       if (res.data?.access_token) {
+  //         this.tokenService.token = res.data.access_token;
+  //         this.router.navigate(['register']);
+  //       } else {
+  //         // Handle missing access token in response
+  //         this.errorMsg.push('Authentication failed. No access token received.');
+  //       }
+  //     }),
+  //     catchError((err) => {
+  //       // Handle errors
+  //       console.log(err);
+  //       if (err.error?.validationErrors) {
+  //         this.errorMsg = err.error.validationErrors;
+  //       } else if (err.error?.errorMsg) {
+  //         this.errorMsg.push(err.error.errorMsg);
+  //       } else {
+  //         this.errorMsg.push('An unknown error occurred.');
+  //       }
+  //       return throwError(err);
+  //     })
+  //   ).subscribe();
+  // }
 
   register() {
     this.router.navigate(['register'])
