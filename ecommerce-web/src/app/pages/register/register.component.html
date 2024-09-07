@@ -1,0 +1,35 @@
+<div class="login d-flex justify-content-center align-items-center vh-100">
+    <div class="login-container p-5 border rounded shadow">
+        <h3 class="text-center fw-bold mb-5">Sing Up</h3>
+        <form>
+            <div class="form-group mb-3">
+                <i class="fa-solid fa-phone"></i>
+                <input [(ngModel)]="regRequest.phoneNum" type="text" name="phoneNum" class="form-control fw-bold" placeholder="Phone Number" required>
+            </div>
+            <div class="form-group mb-3">
+                <i class="fa-solid fa-user"></i>
+                <input [(ngModel)]="regRequest.name" type="text" name="name" class="form-control fw-bold" placeholder="Your Name" required>
+            </div>
+            <div class="form-group mb-3">
+                <i class="fa-solid fa-envelope"></i>
+                <input [(ngModel)]="regRequest.email" type="email" name="email" class="form-control fw-bold" placeholder="example@gmail.com" required>
+            </div>
+            <div class="form-group mb-3">
+                <i class="fa-solid fa-lock"></i>
+                <input [(ngModel)]="regRequest.password" type="password" name="password" class="form-control fw-bold" placeholder="at least 6 characters" required>
+            </div>
+            <div class="text-center">
+                <button (click)="register()" type="button" class="bg form-control fw-bold">
+                    <i class="fas fa-sign-in-alt"></i> Sign up
+                </button>
+            </div>
+            <div class="text-center mt-3 fw-bold">
+                Already have an account?
+                <button (click)="login()" href="#" class="btn btn-link link-underline link-underline-opacity-0 fw-bold">
+                    Sign in
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+

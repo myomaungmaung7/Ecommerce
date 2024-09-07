@@ -17,7 +17,7 @@
     left: 10px; /* Position the icon inside the input */
     top: 50%;
     transform: translateY(-50%); /* Center the icon vertically */
-    color: #131842; /* Icon color */
+    color: #4793AF; /* Icon color */
 }
 
 .form-control {
@@ -27,5 +27,9 @@
 }
 
 .bg {
-    background-color: #6c757d;
+    background-color: #686D76;
+}
+
+.btn:hover {
+    color: #040b4b;
 }
