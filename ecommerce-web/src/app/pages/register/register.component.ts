@@ -15,7 +15,8 @@ export class RegisterComponent {
     name: '',
     email: '',
     phoneNum: '',
-    password: ''
+    password: '',
+    roleType: ''
   }
 
   constructor(
@@ -24,7 +25,7 @@ export class RegisterComponent {
     private tokenService: TokenService
   ) {}
 
-  register() {
+  onSignUp() {
     this.authService.register({
       body: this.regRequest
     }).subscribe({
@@ -34,7 +35,7 @@ export class RegisterComponent {
     })
   }
 
-  login() {
+  onSignIn() {
     this.router.navigate([''])
   }
 }

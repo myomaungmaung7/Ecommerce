@@ -1,19 +1,24 @@
 import { Component } from '@angular/core';
+import { AuthenticationRequest, RegistrationRequest } from '../../services/models';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/services';
 import { TokenService } from '../../services/token/token.service';
-import { AuthenticationRequest } from '../../services/models';
-
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  selector: 'app-form',
+  templateUrl: './form.component.html',
+  styleUrl: './form.component.css'
 })
-export class LoginComponent {
-
+export class FormComponent {
+  isSignUp: boolean = false;
+  regRequest: RegistrationRequest = {
+    name: '',
+    email: '',
+    phoneNum: '',
+    password: '',
+    roleType: ''
+  };
   authRequest: AuthenticationRequest = {email: '', password: ''};
-  errorMsg: Array<string> = [];
 
   constructor(
     private router: Router,
@@ -21,29 +26,33 @@ export class LoginComponent {
     private tokenService: TokenService
   ) {}
 
+  toggleSignUp(value: boolean): void{
+    this.isSignUp = value;
+  }
 
-
-  onSignIn() {
-    this.errorMsg = [];
+  onSignIn(): void {
     this.authService.authenticate({
       body: this.authRequest
     }).subscribe({
       next: (res) => {
         this.tokenService.token = res.data?.access_token as string;
-        this.router.navigate(['register']);
-      },
-      error: (err) => {
-        console.log(err);
-        if (err.error.validationErrors) {
-          this.errorMsg = err.error.validationErrors;
-        } else {
-          this.errorMsg.push(err.error.errorMsg);
-        }
+        this.router.navigate(['login'])
       }
-    });
+    })
   }
 
-  onSignUp() {
+  onSignUp(): void {
+    this.authService.register({
+      body: this.regRequest
+    }).subscribe({
+      next: () => {
+        this.router.navigate(['register']);
+      }
+    })
+  }
+
+  register() {
     this.router.navigate(['register'])
   }
+
 }

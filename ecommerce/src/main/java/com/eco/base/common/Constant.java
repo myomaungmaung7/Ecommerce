@@ -8,6 +8,7 @@ public class Constant {
     /*user*/
     public static final String USER_EXISTED = "User existed in system.";
     public static final String USER_REGISTER_SUCCESS = "Registered Successfully.";
+    public static final String USER_ADDED = "User added successfully.";
     public static final String USER_REGISTERED = "User registered in system.";
     public static final String AUTH_SUCCESS = "You are authenticated in system.";
     public static final String USER_FETCHED = "User's data fetched in system.";

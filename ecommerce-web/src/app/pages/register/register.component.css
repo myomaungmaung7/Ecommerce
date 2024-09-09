@@ -1,35 +1,87 @@
-.login {
-    background-color: white;
-}
-
-.login-container {
-    max-width: 800px;
-    margin: 0 auto; /* Center the form */
+.container {
+    max-width: 100%; 
     font-family: 'Poppins', sans-serif;
 }
 
-.form-group {
-    position: relative; /* Relative positioning for absolute positioning of icons */
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0.3, 0, 0.5);
 }
 
-.form-group i {
+.vh-100 {
+    min-height: 100vh; 
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.icon {
     position: absolute;
-    left: 10px; /* Position the icon inside the input */
     top: 50%;
-    transform: translateY(-50%); /* Center the icon vertically */
-    color: #4793AF; /* Icon color */
+    left: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #243B55;
 }
 
-.form-control {
-    width: 300px;
-    height: 50px;
-    padding-left: 35px; /* Add padding to prevent text from overlapping with icon */
+.custom-input {
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding-left: 40px;
+    height: 40px;
+    width: 100%;
+    max-width: 400px;
+    transition: box-shadow 0.3s ease;
 }
 
-.bg {
-    background-color: #6c757d;
+.custom-input::placeholder {
+    color: #243B55;
+    letter-spacing: 1px;
 }
 
-.btn:hover {
-    color: #040b4b;
+.custom-input:focus {
+    border-bottom: 2px solid #243B55;
+}
+
+.signUp {
+    background-color: #243B55; 
+    color: #e1e1e1;
+    border: none;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+
+.signUp:hover {
+    background-color: #e1e1e1; 
+    color: #243B55; 
+}
+
+.right-column {
+    background: #141E30;
+    color: #e1e1e1;
+    letter-spacing: 1px;
+}
+
+.right-column .btn-primary {
+    background-color: #243B55; 
+    border: none;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+
+.right-column .btn-primary:hover {
+    background-color: #e1e1e1; 
+    color: #243B55; 
+}
+
+h3 {
+    color: #243B55;
 }

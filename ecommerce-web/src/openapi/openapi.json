@@ -136,6 +136,9 @@
                     },
                     "phoneNum": {
                         "type": "string"
+                    },
+                    "roleType": {
+                        "type": "string"
                     }
                 }
             },

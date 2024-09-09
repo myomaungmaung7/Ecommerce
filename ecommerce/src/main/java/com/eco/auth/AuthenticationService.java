@@ -5,6 +5,7 @@ import com.eco.base.common.Constant;
 import com.eco.base.config.IJwtService;
 import com.eco.base.entity.Token;
 import com.eco.base.entity.User;
+import com.eco.base.entity.enums.RoleType;
 import com.eco.base.entity.enums.TokenType;
 import com.eco.base.mapper.UserMapper;
 import com.eco.base.repository.TokenRepository;
@@ -120,6 +121,7 @@ public class AuthenticationService {
                         .email(request.getEmail())
                         .phoneNum(request.getPhoneNum())
                         .password(passwordEncoder.encode(request.getPassword()))
+                        .roleType(RoleType.CUSTOMER)
                         .enabled(true)
                 .build());
         return AUTHResponse.success(Constant.USER_REGISTER_SUCCESS, UserMapper.dtoToEntity(user));

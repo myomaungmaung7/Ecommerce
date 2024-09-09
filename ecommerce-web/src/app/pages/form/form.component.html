@@ -1,0 +1,36 @@
+<div class="container vh-100 d-flex align-items-center justify-content-center">
+    <div class="row justify-content-center w-100">
+      <div class="col-md-8 col-lg-6">
+        <div class="card">
+          <div class="row g-0">
+            <!-- Left Column: Welcome Message and Action -->
+            <div class="col-md-6 d-none d-md-flex flex-column align-items-center justify-content-center bg-light p-4">
+              <!-- Heading -->
+              <h1 class="mb-3 text-center">Hello Friend!</h1>
+              <!-- Paragraph -->
+              <p class="mb-4 text-center">Enter your personal details to start your journey with us.</p>
+              <!-- Button -->
+              <button (click)="register()" class="btn btn-primary mt-3">Sign In</button>
+            </div>
+  
+            <!-- Right Column: Login Form -->
+            <div class="col-md-6 p-4">
+              <h3 class="mb-4 text-center">Login</h3>
+              <form (ngSubmit)="onSignIn()">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" class="form-control custom-input" id="email" placeholder="Enter your email" [(ngModel)]="authRequest.email" name="email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control custom-input" id="password" placeholder="Enter your password" [(ngModel)]="authRequest.password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  
