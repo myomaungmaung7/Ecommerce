@@ -27,6 +27,36 @@
         }
     ],
     "paths": {
+        "/api/v1/products/add-product": {
+            "post": {
+                "tags": [
+                    "PRODUCT-CONTROLLER"
+                ],
+                "operationId": "addProduct",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ProductDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AUTHResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/auth/register": {
             "post": {
                 "tags": [
@@ -99,6 +129,36 @@
                     }
                 }
             }
+        },
+        "/api/v1/admins/add-user": {
+            "post": {
+                "tags": [
+                    "ADMIN-CONTROLLER"
+                ],
+                "operationId": "addUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AUTHResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -119,6 +179,84 @@
                     "timestamp": {
                         "type": "integer",
                         "format": "int64"
+                    }
+                }
+            },
+            "ProductColorDTO": {
+                "type": "object",
+                "properties": {
+                    "colorName": {
+                        "type": "string"
+                    },
+                    "availableStock": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "ProductDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "stockQuantity": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "category": {
+                        "type": "string"
+                    },
+                    "brand": {
+                        "type": "string"
+                    },
+                    "model": {
+                        "type": "string"
+                    },
+                    "storage": {
+                        "type": "string"
+                    },
+                    "releaseDate": {
+                        "type": "string"
+                    },
+                    "discount": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "updatedAt": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "createdAt": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "imagePath": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string",
+                        "format": "binary"
+                    },
+                    "colors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ProductColorDTO"
+                        }
+                    },
+                    "active": {
+                        "type": "boolean"
                     }
                 }
             },
@@ -150,6 +288,37 @@
                     },
                     "password": {
                         "type": "string"
+                    }
+                }
+            },
+            "UserDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    },
+                    "phoneNum": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "roleType": {
+                        "type": "string",
+                        "enum": [
+                            "ADMIN",
+                            "CUSTOMER"
+                        ]
                     }
                 }
             }

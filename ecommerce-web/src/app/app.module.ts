@@ -7,14 +7,15 @@ import { LoginComponent } from './pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './pages/register/register.component';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormComponent } from './pages/form/form.component';
+import { AdminHomeComponent } from './modules/pages/admins/admin-home/admin-home.component';
+import { AddProductComponent } from './modules/pages/admins/add-product/add-product.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    FormComponent
+    AdminHomeComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

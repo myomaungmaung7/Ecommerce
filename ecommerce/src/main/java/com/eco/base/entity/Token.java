@@ -29,9 +29,9 @@ public class Token {
 
     public boolean expired;
 
-    public long loginAt;
+    public Long loginAt;
 
-    public long logoutAt;
+    public Long logoutAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

@@ -28,6 +28,6 @@ public class UserService {
                         .phoneNum(userDTO.getPhoneNum())
                         .roleType(RoleType.ADMIN)
                 .build());
-        return AUTHResponse.success(Constant.USER_ADDED, UserMapper.dtoToEntity(user));
+        return AUTHResponse.success(Constant.USER_ADDED, UserMapper.entityToDto(user));
     }
 }

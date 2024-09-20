@@ -1,0 +1,128 @@
+<div class="sidebar">
+    <h1>Ecommerce</h1>
+    <div class="menu">
+        <div (click)="navigateTo('admin-home')" class="item">
+            <a><i class="fa-solid fa-list"></i>Dashboard</a>
+        </div>
+        <div class="item">
+            <a class="sub-btn" (click)="toggleDropdown(0)">
+                <i class="fa-solid fa-bag-shopping"></i>Product
+                <i class="fa-solid fa-caret-down dropdown" [ngClass]="{'rotate-icon': dropdownOpen[0]}"></i>
+            </a>
+            <div class="sub-menu" *ngIf="dropdownOpen[0]" [@slideToggle]>
+                <a class="sub-item">Product Dashboard</a>
+                <a (click)="navigateTo('add-product')" class="sub-item">Add Product</a>
+            </div>
+        </div>
+        <div class="item">
+            <a class="sub-btn" (click)="toggleDropdown(1)">
+                <i class="fa-solid fa-list-check"></i>Order
+                <i class="fa-solid fa-caret-down dropdown" [ngClass]="{'rotate-icon': dropdownOpen[1]}"></i>
+            </a>
+            <div class="sub-menu" *ngIf="dropdownOpen[1]" [@slideToggle]>
+                <a class="sub-item">Order Dashboard</a>
+                <a class="sub-item">Add Product</a>
+            </div>
+        </div>
+        <div class="item">
+            <a class="sub-btn" (click)="toggleDropdown(2)">
+                <i class="fa-solid fa-user"></i>User
+                <i class="fa-solid fa-caret-down dropdown" [ngClass]="{'rotate-icon': dropdownOpen[2]}"></i>
+            </a>
+            <div class="sub-menu" *ngIf="dropdownOpen[2]" [@slideToggle]>
+                <a class="sub-item">User Dashboard</a>
+                <a class="sub-item">Add User</a>
+            </div>
+        </div>
+        <div class="item">
+            <a><i class="fa-solid fa-gear"></i>Setting</a>
+        </div>
+        <div class="item">
+            <a><i class="fa-solid fa-address-card"></i>About</a>
+        </div>
+    </div>
+    <div class="logout">
+        <a><i class="fa-solid fa-sign-out-alt"></i>Logout</a>
+    </div>
+</div>
+<div class="content">
+    <nav class="navbar">
+        <input type="text" placeholder="Search...">
+        <div class="d-flex align-items-center">
+            <i class="fa-solid fa-bell me-3"></i>
+            <i class="fa-solid fa-envelope"></i>
+        </div>
+    </nav>
+    <div class="container">
+      <form (onSubmit)="onAddProduct()">
+        <div class="row">
+          <div class="col">
+            <label for="name" class="form-label">Product Name</label>
+            <input [(ngModel)]="productRequest.name" type="text" class="custom-input" id="name" name="name">
+          </div>
+          <div class="col">
+            <label for="category" class="form-label">Category</label>
+            <input [(ngModel)]="productRequest.category" type="text" class="custom-input" id="category" name="category">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="model" class="form-label">Model</label>
+            <input [(ngModel)]="productRequest.model" type="text" class="custom-input" id="model" name="model">
+          </div>
+          <div class="col">
+            <label for="brand" class="form-label">Brand</label>
+            <input [(ngModel)]="productRequest.brand" type="text" class="custom-input" id="brand" name="brand">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="price" class="form-label">Price</label>
+            <input [(ngModel)]="productRequest.price" type="text" class="custom-input" id="price" name="price">
+          </div>
+          <div class="col">
+            <label for="stock" class="form-label">Stock Quantity</label>
+            <input [(ngModel)]="productRequest.stockQuantity" type="number" class="custom-input" id="stock" name="stockQuantity">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="storage" class="form-label">Storage</label>
+            <input [(ngModel)]="productRequest.storage" type="text" class="custom-input" id="storage" name="storage">
+          </div>
+          <div class="col">
+            <label for="relase" class="form-label">Release Date</label>
+            <input [(ngModel)]="productRequest.releaseDate" type="text" class="custom-input" id="release" name="releaseDate">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="description" class="form-label">Description</label>
+            <input [(ngModel)]="productRequest.description" type="text" class="custom-input" id="description" name="description">
+          </div>
+          <div class="col">
+            <label for="color" class="form-label">Colors</label>
+            <div *ngFor="let color of productRequest.colors; let i = index">
+              <div class="row mb-2 align-items-center">
+                <div class="col">
+                  <input [(ngModel)]="color.colorName" type="text" class="form-control" placeholder="Color Name"
+                  name="colorName{{i}}">
+                </div>
+                <div class="col">
+                  <input [(ngModel)]="color.availableStock" type="number" class="form-control"    placeholder="AvailableStock" name="availableStock{{i}}">
+                </div>
+                <div class="col-auto">
+                  <button type="button" class="btn btn-danger me-3" (click)="removeColor(i)">-</button>
+                  <button type="button" class="btn btn-primary" (click)="addColor()">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="button-row">
+          <button type="button" class="btn btn-cancel">Cancel</button>
+          <button (click)="onAddProduct()" type="submit" class="btn btn-save">Save Now</button>
+        </div>
+      </form>
+    </div>
+</div>

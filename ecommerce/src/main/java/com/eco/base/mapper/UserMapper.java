@@ -4,7 +4,7 @@ import com.eco.base.entity.User;
 import com.eco.base.entity.enums.RoleType;
 
 public class UserMapper {
-    public static User entityToDto (UserDTO dto) {
+    public static User dtoToEntity (UserDTO dto) {
         return User.builder()
                 .name(dto.getName())
                 .email(dto.getEmail())
@@ -15,7 +15,7 @@ public class UserMapper {
                 .build();
     }
 
-    public static UserDTO dtoToEntity (User entity) {
+    public static UserDTO entityToDto (User entity) {
         return UserDTO.builder()
                 .id(entity.getId())
                 .name(entity.getName())

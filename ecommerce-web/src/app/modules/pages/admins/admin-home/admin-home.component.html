@@ -1,0 +1,206 @@
+<!-- <div class="sidebar">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</div>
+
+  
+<div class="content">
+    
+    <nav class="navbar">
+      <a class="navbar-brand" href="#">My Website</a>
+      <div class="navbar-nav">
+        <a href="#">Home</a>
+        <a href="#">Profile</a>
+        <a href="#">Logout</a>
+      </div>
+    </nav>
+
+   
+    <div class="container">
+      <h1>Main Content</h1>
+      <p>This is the content area of the page.</p>
+
+      
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <h5 class="card-title">Column 1</h5>
+            <p>Some content for column 1.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <h5 class="card-title">Column 2</h5>
+            <p>Some content for column 2.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <h5 class="card-title">Column 3</h5>
+            <p>Some content for column 3.</p>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="mt-4">
+        <h2>Sample Table</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>John</td>
+              <td>Doe</td>
+              <td>john.doe</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jane</td>
+              <td>Smith</td>
+              <td>jane.smith</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Michael</td>
+              <td>Johnson</td>
+              <td>michael.johnson</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div> -->
+
+<div class="sidebar">
+    <h1>Ecommerce</h1>
+    <div class="menu">
+        <div (click)="dashboard()" class="item">
+            <a><i class="fa-solid fa-list"></i>Dashboard</a>
+        </div>
+        <div class="item">
+            <a class="sub-btn" (click)="toggleDropdown(0)">
+                <i class="fa-solid fa-bag-shopping"></i>Product
+                <i class="fa-solid fa-caret-down dropdown" [ngClass]="{'rotate-icon': dropdownOpen[0]}"></i>
+            </a>
+            <div class="sub-menu" *ngIf="dropdownOpen[0]" [@slideToggle]>
+                <a class="sub-item">Product Dashboard</a>
+                <a (click)="addProduct()" class="sub-item">Add Product</a>
+            </div>
+        </div>
+        <div class="item">
+            <a class="sub-btn" (click)="toggleDropdown(1)">
+                <i class="fa-solid fa-list-check"></i>Order
+                <i class="fa-solid fa-caret-down dropdown" [ngClass]="{'rotate-icon': dropdownOpen[1]}"></i>
+            </a>
+            <div class="sub-menu" *ngIf="dropdownOpen[1]" [@slideToggle]>
+                <a class="sub-item">Order Dashboard</a>
+                <a class="sub-item">Add Product</a>
+            </div>
+        </div>
+        <div class="item">
+            <a class="sub-btn" (click)="toggleDropdown(2)">
+                <i class="fa-solid fa-user"></i>User
+                <i class="fa-solid fa-caret-down dropdown" [ngClass]="{'rotate-icon': dropdownOpen[2]}"></i>
+            </a>
+            <div class="sub-menu" *ngIf="dropdownOpen[2]" [@slideToggle]>
+                <a class="sub-item">User Dashboard</a>
+                <a class="sub-item">Add User</a>
+            </div>
+        </div>
+        <div class="item">
+            <a><i class="fa-solid fa-gear"></i>Setting</a>
+        </div>
+        <div class="item">
+            <a><i class="fa-solid fa-address-card"></i>About</a>
+        </div>
+    </div>
+    <div class="logout">
+        <a><i class="fa-solid fa-sign-out-alt"></i>Logout</a>
+    </div>
+</div>
+<div class="content">
+    <nav class="navbar">
+        <input type="text" placeholder="Search...">
+        <div class="d-flex align-items-center">
+            <i class="fa-solid fa-bell me-3"></i>
+            <i class="fa-solid fa-envelope"></i>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                  <h5 class="card-title">Column 1</h5>
+                  <p>Some content for column 1.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                  <h5 class="card-title">Column 2</h5>
+                  <p>Some content for column 2.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                  <h5 class="card-title">Column 3</h5>
+                  <p>Some content for column 3.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                  <h5 class="card-title">Column 4</h5>
+                  <p>Some content for column 4.</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <h2>Product Table</h2>
+            <table class="table table-primary table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john.doe</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jane</td>
+                        <td>Smith</td>
+                        <td>jane.smith</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Michael</td>
+                        <td>Johnson</td>
+                        <td>michael.johnson</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Michael</td>
+                        <td>Johnson</td>
+                        <td>michael.johnson</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

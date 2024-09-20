@@ -25,10 +25,25 @@ public class Product {
     private Double price;
     private Integer stockQuantity;
     private String category;
+    private String brand;
+    private String model;
+    private String storage;
+    private String releaseDate;
+    private double discount;
+    private Long updatedAt;
+    private Long createdAt;
+    private boolean isActive;
+    private String imagePath;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = {CascadeType.DETACH,
+            CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Cart> carts;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = {CascadeType.DETACH,
+            CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<OrderDetail> orderDetails;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = {CascadeType.DETACH,
+            CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private List<ProductColor> productColors;
 }

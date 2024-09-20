@@ -24,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -124,6 +125,6 @@ public class AuthenticationService {
                         .roleType(RoleType.CUSTOMER)
                         .enabled(true)
                 .build());
-        return AUTHResponse.success(Constant.USER_REGISTER_SUCCESS, UserMapper.dtoToEntity(user));
+        return AUTHResponse.success(Constant.USER_REGISTER_SUCCESS, UserMapper.entityToDto(user));
     }
 }
